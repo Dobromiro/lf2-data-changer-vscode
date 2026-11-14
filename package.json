@@ -1,0 +1,118 @@
+{
+  "name": "lf2-data-changer-vscode",
+  "displayName": "LF2 Data Changer",
+  "description": "Open, decrypt, edit and save Little Fighter 2 (.dat, data.txt, AI.as) files directly in VS Code.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onFileSystem:lf2dat",
+    "onLanguage:lf2dc"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "LF2 Data Changer",
+      "properties": {
+        "lf2dc.autoOpenDatFiles": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically reopen Little Fighter 2 .dat files using the decrypted lf2dat:// editor."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "lf2dc",
+        "aliases": [
+          "LF2 Data",
+          "lf2dc"
+        ],
+        "extensions": [
+          ".dat"
+        ],
+        "filenamePatterns": [
+          "**/data/data.txt",
+          "**/LittleFighter*/**/data.txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lf2dc",
+        "scopeName": "source.lf2dc",
+        "path": "./syntaxes/lf2dc.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "lf2dc",
+        "path": "./snippets/lf2dc.json"
+      },
+      {
+        "language": "plaintext",
+        "path": "./snippets/lf2dc.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "lf2dc.openDat",
+        "title": "LF2: Open .dat in Data Changer"
+      },
+      {
+        "command": "lf2dc.quickOpenFromDataTxt",
+        "title": "LF2: Quick Open Object/BG from data.txt"
+      },
+      {
+        "command": "lf2dc.exportPlaintext",
+        "title": "LF2: Export Decrypted Copy (.txt)"
+      },
+      {
+        "command": "lf2dc.encryptCurrentToDat",
+        "title": "LF2: Encrypt Active File to .dat"
+      },
+      {
+        "command": "lf2dc.createAiTemplate",
+        "title": "LF2: New AI.as Template"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .dat",
+          "command": "lf2dc.openDat",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceExtname == .dat",
+          "command": "lf2dc.exportPlaintext",
+          "group": "7_modification"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "resourceScheme == lf2dat",
+          "command": "lf2dc.exportPlaintext",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}

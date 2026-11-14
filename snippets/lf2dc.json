@@ -1,0 +1,79 @@
+{
+  "LF2 Frame": {
+    "prefix": "frame",
+    "body": [
+      "<frame> ${1:0} ${2:standing}",
+      "   pic: ${3:0}  state: ${4:0}  wait: ${5:5}  next: ${6:0}  dvx: ${7:0}  dvy: ${8:0}  dvz: ${9:0}  centerx: ${10:39}  centery: ${11:79}  hit_a: 0  hit_d: 0  hit_j: 0",
+      "   bdy:",
+      "      kind: 0  x: 21  y: 18  w: 43  h: 62",
+      "   bdy_end:",
+      "<frame_end>"
+    ],
+    "description": "Nowa klatka animacji LF2 (<frame>)"
+  },
+  "LF2 Body Box (bdy)": {
+    "prefix": "bdy",
+    "body": [
+      "bdy:",
+      "   kind: ${1:0}  x: ${2:21}  y: ${3:18}  w: ${4:43}  h: ${5:62}",
+      "bdy_end:"
+    ],
+    "description": "Blok hitboxa otrzymywania obrażeń (bdy)"
+  },
+  "LF2 Interaction Box (itr)": {
+    "prefix": "itr",
+    "body": [
+      "itr:",
+      "   kind: ${1:0}  x: ${2:40}  y: ${3:20}  w: ${4:40}  h: ${5:40}  dvx: ${6:3}  dvy: ${7:0}  fall: ${8:20}  vrest: ${9:10}  bdefend: ${10:16}  injury: ${11:30}",
+      "itr_end:"
+    ],
+    "description": "Blok ataku/interakcji (itr)"
+  },
+  "LF2 Object Spawn (opoint)": {
+    "prefix": "opoint",
+    "body": [
+      "opoint:",
+      "   kind: ${1:1}  x: ${2:40}  y: ${3:40}  action: ${4:0}  dvx: ${5:0}  oid: ${6:200}  facing: ${7:0}",
+      "opoint_end:"
+    ],
+    "description": "Blok tworzenia obiektu/pocisku (opoint)"
+  },
+  "LF2 data.txt Object": {
+    "prefix": "object",
+    "body": [
+      "<object>",
+      "id: ${1:0}   type: ${2:0} file: data\\\\${3:template}.dat",
+      "<object_end>"
+    ],
+    "description": "Wpis obiektu w data.txt (na podstawie templates/Data.txt)"
+  },
+  "LF2 data.txt Background": {
+    "prefix": "background",
+    "body": [
+      "<background>",
+      "id: ${1:4}   file: bg\\\\sys\\\\${2:hkc}\\\\bg.dat",
+      "<background_end>"
+    ],
+    "description": "Wpis tła w data.txt (na podstawie templates/Data.txt)"
+  },
+  "LF2 AI Template": {
+    "prefix": "lf2ai",
+    "body": [
+      "int ego(){",
+      "    //ego here",
+      "    $1",
+      "    return 0;",
+      "}",
+      "",
+      "void id(){",
+      "    //id here",
+      "    $2",
+      "    if(ego() == 0){",
+      "        //superego here",
+      "        $3",
+      "    }",
+      "}"
+    ],
+    "description": "Szablon skryptu AI LF2 (na podstawie templates/AI.as)"
+  }
+}

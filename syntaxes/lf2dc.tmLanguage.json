@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "LF2 Data Changer",
+  "scopeName": "source.lf2dc",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#tags" },
+    { "include": "#subblocks" },
+    { "include": "#properties" },
+    { "include": "#paths" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.lf2dc",
+          "match": "(#|//).*$"
+        }
+      ]
+    },
+    "tags": {
+      "patterns": [
+        {
+          "name": "keyword.control.tag.lf2dc",
+          "match": "<\\/?(?:bmp_begin|bmp_end|frame|frame_end|object|object_end|file_editing|file_editing_end|background|background_end|stage|stage_end|phase|phase_end|weapon_strength_list|weapon_strength_list_end|entry)\\b[^>]*>"
+        }
+      ]
+    },
+    "subblocks": {
+      "patterns": [
+        {
+          "name": "entity.name.section.subblock.lf2dc",
+          "match": "\\b(?:bdy|bdy_end|itr|itr_end|opoint|opoint_end|wpoint|wpoint_end|cpoint|cpoint_end):"
+        }
+      ]
+    },
+    "properties": {
+      "patterns": [
+        {
+          "name": "variable.other.property.lf2dc",
+          "match": "\\b(?:id|type|file|name|head|small|walking_frame_rate|walking_speed|walking_speedz|running_frame_rate|running_speed|running_speedz|heavy_walking_speed|heavy_walking_speedz|heavy_running_speed|heavy_running_speedz|jump_height|jump_distance|jump_distancez|dash_height|dash_distance|dash_distancez|rowing_height|rowing_distance|rowing_distancez|pic|state|wait|next|dvx|dvy|dvz|centerx|centery|hit_a|hit_d|hit_j|hit_Fa|hit_Fj|hit_Ua|hit_Uj|hit_Da|hit_Dj|kind|x|y|w|h|areact|vrest|bdefend|injury|fall|zwidth|effect|sound|mp|action|oid|facing|hurtable|throwinjury|throwvx|throwvy|throwvz|weaponact|attacking|cover|dircontrol|decrease|layer|bound|shadow|ratio|rect|cc|c1|c2|transparency|row|col|hp|times|reserve|act|join|join_reserve|boss|music|ratio|width|zboundary|shadowsize)\\s*:"
+        },
+        {
+          "name": "support.function.file.lf2dc",
+          "match": "\\bfile\\s*\\([^)]*\\)"
+        }
+      ]
+    },
+    "paths": {
+      "patterns": [
+        {
+          "name": "string.unquoted.path.lf2dc",
+          "match": "(?:data|sprite|bg|sound|bgm)[\\\\/][^\\s<>]+"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.lf2dc",
+          "match": "(?<![\\w.])-?\\d+(?:\\.\\d+)?"
+        }
+      ]
+    }
+  }
+}

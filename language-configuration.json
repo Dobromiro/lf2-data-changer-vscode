@@ -1,0 +1,30 @@
+{
+  "comments": {
+    "lineComment": "#"
+  },
+  "brackets": [
+    ["<", ">"],
+    ["(", ")"],
+    ["[", "]"],
+    ["{", "}"]
+  ],
+  "autoClosingPairs": [
+    ["<", ">"],
+    ["(", ")"],
+    ["[", "]"],
+    ["{", "}"],
+    ["\"", "\""]
+  ],
+  "surroundingPairs": [
+    ["<", ">"],
+    ["(", ")"],
+    ["[", "]"],
+    ["{", "}"]
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*(<(?:bmp_begin|frame|object|background|file_editing|stage|phase|weapon_strength_list)\\b[^>]*>|(?:bdy|itr|opoint|wpoint|cpoint):)",
+      "end": "^\\s*(<(?:bmp_end|frame_end|object_end|background_end|file_editing_end|stage_end|phase_end|weapon_strength_list_end)\\b[^>]*>|(?:bdy_end|itr_end|opoint_end|wpoint_end|cpoint_end):)"
+    }
+  }
+}
